@@ -1,0 +1,5 @@
+train: Dataset_for_yolofr/images/train
+val:   Dataset_for_yolofr/images/val
+
+nc: 1
+names: ['class0']

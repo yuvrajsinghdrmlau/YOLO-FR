@@ -1,0 +1,46 @@
+# ==========================================
+# YOLO-FR FAST CONVERGENCE (Low Epoch Setup)
+# Optimized for Small / Dim IR Targets
+# ==========================================
+
+# ---- Learning Rate (FASTER LEARNING) ----
+lr0: 0.006        # ↑ faster than default
+lrf: 0.1          # keep LR high longer
+momentum: 0.93
+weight_decay: 0.0004
+
+# ---- Warmup (SHORTER) ----
+warmup_epochs: 2.0
+warmup_momentum: 0.85
+warmup_bias_lr: 0.15
+
+# ---- Loss Weights (AGGRESSIVE) ----
+box: 0.10         # strong localization pressure
+cls: 0.5
+cls_pw: 1.0
+obj: 1.35          # strong objectness → high recall
+obj_pw: 1.0
+
+# ---- IoU & Anchor Matching (EASY MATCH) ----
+iou_t: 0.12       # very tolerant IoU
+anchor_t: 2.5     # match small anchors easily
+
+# ---- Focal Loss ----
+fl_gamma: 0.0     # OFF for fast learning
+
+# ---- Augmentation (MINIMAL for IR) ----
+hsv_h: 0.0
+hsv_s: 0.0
+hsv_v: 0.0
+degrees: 0.0
+translate: 0.04
+scale: 0.25
+shear: 0.0
+perspective: 0.0
+flipud: 0.0
+fliplr: 0.5
+
+# ---- Mosaic & Mixup (REDUCED) ----
+mosaic: 0.4
+mixup: 0.0
+copy_paste: 0.0
